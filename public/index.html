@@ -10,12 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
     <title>Kimeras</title>
-
   </head>
   <body>
-    
     <div class="container shadow bg-light">
       <!--NAVBAR-->
       <header class="fontz">
@@ -37,8 +34,6 @@
         </nav>
       </header>
       <!--NAVBAR-->
-      
-
       <div class="div py-4"></div>
       <!--CARRUSEL-->
       <div id="carousel" class="carousel slide shadow fontz" data-bs-ride="carousel">
@@ -137,6 +132,7 @@
           <div class="col-md">
             <h1>Contacto</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <form class="form-inline">
             <div class="row py-2">
               <div class="col"><input class="form-control" type="text" id="Nombre" placeholder="Nombre" aria-label="firstname"></div>
               <div class="col"><input class="form-control" type="text" id="Apellidos" placeholder="Apellidos" aria-label="lastname"></div>
@@ -148,8 +144,9 @@
               <div class="col"><textarea class="form-control" id="Mensaje" placeholder="Mensaje" rows="3"></textarea></div>
             </div>
             <div class="row py-2">
-              <div class="col"><a class="btn btn-primary">Submit</a></div>
+              <div class="col"><a id="Enviar" class="btn btn-primary">Enviar</a></div>
             </div>
+          </form>
           </div>
         </div>
       </div>
@@ -164,16 +161,60 @@
       <!--PIE DE PAGINA-->
     </div>
     <!--Scripts-->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/8.2.3/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/Contact.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCp51XteGOJw4urNQ5BtohvIEPQDHJ-Em0",
+        authDomain: "webdevelopment-aa9e7.firebaseapp.com",
+        databaseURL: "https://webdevelopment-aa9e7-default-rtdb.firebaseio.com",
+        projectId: "webdevelopment-aa9e7",
+        storageBucket: "webdevelopment-aa9e7.appspot.com",
+        messagingSenderId: "486644598594",
+        appId: "1:486644598594:web:903d02c174a1688f5beadb"
+      };
+      firebase.initializeApp(firebaseConfig);
+      var Nombre,Apellidos,Email,Mensaje
+      function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+      }
+      function Ready(){
+        Nombre      =document.getElementById('Nombre').value;
+        Apellidos   =document.getElementById('Apellidos').value;
+        Email       =document.getElementById('Correo').value;
+        Mensaje     =document.getElementById('Mensaje').value;
+        if(Nombre == ""){
+          alert("Campo de nombre no puede estar vacio");
+          return false;
+        }
+        if(Apellidos == ""){
+          alert("Ingrese sus apellidos");
+          return false;
+        }
+        if(validateEmail(Email) == false){
+          alert("Compruebe el Email");
+          return false;
+        }
+        if(Mensaje == ""){
+          alert("Ingrese su Mensaje");
+          return false;
+        }
+        return true;
+      }
+      document.getElementById('Enviar').onclick = function(){
+        if(Ready() ==true){
+            firebase.database().ref(Apellidos+" "+Nombre).set({
+            Nombre_Cliente: Nombre+" "+Apellidos,
+            Correo_Cliente: Email,
+            Mensaje_Cliente:Mensaje
+          })
+          alert("Mensaje Enviado.")
+        }
+      }
+    </script>
   </body>
 </html>
