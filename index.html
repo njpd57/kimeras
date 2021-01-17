@@ -14,7 +14,7 @@
     <div class="container shadow bg-light">
       <header>
         <!--NAVBAR-->
-        <nav class="navbar shadow navbar-expand-lg navbar-light bg-light rounded navbar-fixed-top">
+        <nav class="navbar shadow navbar-expand-lg navbar-light bg-light rounded fixed-top">
         <div class="container">
           <a class="navbar-brand" href="#"">Kimeras</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMarkup"><!--TOGGLER!!-->
@@ -24,16 +24,16 @@
             <div class="navbar-nav">
               <a class="nav-link" href="#">Inicio</a>
               <a class="nav-link" href="#Clientes">Nosotros</a>
-              <a class="nav-link" href="#">Nuestra Vision</a>
+              <a class="nav-link" href="#Servicios">Servicios</a>
               <a class="nav-link">Documentos</a>
-              <a class="btn btn-outline-primary">Contacto</a>
+              <a class="btn btn-outline-primary" href="#Contacto">Contacto</a>
             </div>
           </div>
         </nav>
         <!--NAVBAR-->
       </header>
       <!--CARRUSEL-->
-      <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+      <div id="carousel" class="carousel slide py-5" data-bs-ride="carousel">
         <ol class="carousel-indicators">
           <li data-bs-target="#carousel" data-bs-slide-to="0" class="active"></li>
           <li data-bs-target="#carousel" data-bs-slide-to="1"></li>
@@ -72,15 +72,80 @@
         </a>
       </div>
       <!--CARRUSEL-->
-
+      <hr class="featurette-divider">
       <!--Nuestros Clientes-->
       <div class="container text-center" id="Clientes">
         <div class="row py-5">
-          <div class="h1">Nuestros Testimonios</div>
-          <p><p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a purus convallis, aliquet dolor nec, ultricies est. Suspendisse sollicitudin fermentum lobortis. Cras ligula nisl, fermentum eget ante quis, tincidunt posuere est. Vivamus non lorem dapibus, tincidunt sapien quis, tempor mauris. Donec nec mattis massa. Nam eros libero, ornare vitae commodo nec, vehicula quis nisi. Vivamus purus nunc, posuere vel convallis a, ullamcorper quis orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus tincidunt sapien eros, nec imperdiet lectus placerat quis. Vestibulum rhoncus risus nisl, sit amet interdum enim posuere eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget pellentesque augue, eget dapibus mauris.</p></p>
+          <div class="col-lg">
+            <img src="img/campaign.jpg" class="img-thumbnail shadow">
+        </div>
+          <div class="col-lg">
+            <div class="h1">Nuestros Testimonios</div>
+            <p><p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a purus convallis, aliquet dolor nec, ultricies est. Suspendisse sollicitudin fermentum lobortis. Cras ligula nisl, fermentum eget ante quis, tincidunt posuere est. Vivamus non lorem dapibus, tincidunt sapien quis, tempor mauris. Donec nec mattis massa. Nam eros libero, ornare vitae commodo nec, vehicula quis nisi. Vivamus purus nunc, posuere vel convallis a, ullamcorper quis orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus tincidunt sapien eros, nec imperdiet lectus placerat quis. Vestibulum rhoncus risus nisl, sit amet interdum enim posuere eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget pellentesque augue, eget dapibus mauris.</p></p>
+          </div>
+          
         </div>
       </div>
       <!--Nuestros Clientes-->
+      <hr class="featurette-divider">
+      <!--Servicios-->
+      <div class="container text-center" id="Servicios">
+        <div class="row">
+          <div class="col-xl py-5">
+            <h1>Servicios</h1>
+            <div class="container py-5">
+              <div class="row ">
+                <div class="col"><h3>Charlas Interactivas</h3></div>
+                <div class="col"><p>Contamos con un servicio de charlas interactivas personalizadas en base a los objetivos y ideas que tiene el cliente</p></div>
+              </div>
+              <div class="row">
+                <div class="col"><h3>Charlas Online</h3></div>
+                <div class="col"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+              </div>
+              <div class="row">
+                <div class="col"><h3>Lorem Ipsum</h3></div>
+                <div class="col"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+              </div>
+              <div class="row">
+                <div class="col"><h3>Lorem Ipsum</h3></div>
+                <div class="col"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col-md">
+            <div class="row"><img src="img/FromHome.jpg" class="rounded img-thumbnail shadow"></div>
+          </div>
+          
+        </div>
+      </div>
+      <!--Servicios-->
+      <hr class="featurette-divider">
+      <!--Contacto-->
+      <div class="container text-center" id="Contacto">
+        <div class="row">
+          <div class="col"><img src="img/Email.svg"></div>
+          <div class="col">
+            <h1>Contacto</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="row py-2">
+              <div class="col"><input class="form-control" type="text" placeholder="Nombre" aria-label="default input example"></div>
+              <div class="col"><input class="form-control" type="text" placeholder="Apellidos" aria-label="default input example"></div>
+            </div>
+            <div class="row py-2">
+              <div class="col"><input type="email" class="form-control" id="Correo_Contacto" placeholder="nombre@ejemplo.com"></div>
+            </div>
+            <div class="row py-2">
+              <div class="col"><textarea class="form-control" id="Mensaje" placeholder="Mensaje" rows="3"></textarea></div>
+            </div>
+            <div class="row py-2">
+              <div class="col"><a class="btn btn-primary">Submit</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Contacto-->
       <!--PIE DE PAGINA-->
       <hr class="featurette-divider">
       <footer class="footer mt-auto bg-light">
