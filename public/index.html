@@ -144,7 +144,7 @@
               <div class="col"><textarea class="form-control" id="Mensaje" placeholder="Mensaje" rows="3"></textarea></div>
             </div>
             <div class="row py-2">
-              <div class="col"><a id="Enviar" class="btn btn-primary">Enviar</a></div>
+              <div class="col"><a id="Enviar" class="btn btn-primary" href="#">Enviar</a></div>
             </div>
           </form>
           </div>
@@ -178,6 +178,7 @@
       };
       firebase.initializeApp(firebaseConfig);
       var Nombre,Apellidos,Email,Mensaje
+      
       function validateEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
@@ -207,12 +208,12 @@
       }
       document.getElementById('Enviar').onclick = function(){
         if(Ready() ==true){
-            firebase.database().ref(Apellidos+" "+Nombre).set({
+          var  Correo_Form=document.getElementById('Enviar');
+            Correo_Form.setAttribute("href","mailto:contacto@kimeras.cl?subject=Contacto "+Nombre+" "+Apellidos+"&body="+Mensaje);
+            /*firebase.database().ref(Apellidos+" "+Nombre).set({
             Nombre_Cliente: Nombre+" "+Apellidos,
             Correo_Cliente: Email,
-            Mensaje_Cliente:Mensaje
-          })
-          alert("Mensaje Enviado.")
+            Mensaje_Cliente:Mensaje*/
         }
       }
     </script>
